@@ -48,7 +48,11 @@ The website application provides the user with an interface to interact with the
 + Users can establish a connection between their phone and the glove by clicking the "Connect Bluetooth" button. After selecting the appropriate Bluetooth address associated with the glove, the application will automatically pair the devices, enabling seamless communication. [![Mobile APP interface]](https://im.ge/i/m.KsHErY)
 
 + [![This image is the block diag of the bluetooth app]](https://im.ge/i/b.KsHZNf)
-  
+
+# Readings
+Some basic readings are given below as per our record :
+
+(https://im.ge/i/g.KsHpQT)
 # Usage
 1. Wear the glove and ensure all sensors are securely attached.
 2. Turn on the Arduino Uno and pair it with your mobile device or computer via Bluetooth.
