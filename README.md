@@ -1,5 +1,6 @@
 # Sign-Language-Glove
 This project features a hardware-based sign-language glove translating gestures into text or speech. Flex sensors on the fingers detect bending and send signals to a microcontroller, which interprets the gestures.The Sign-Language Glove is an innovative device designed to translate American Sign Language (ASL) into text and speech in real-time. This project aims to bridge the communication gap between the deaf and hearing communities, leveraging the power of Arduino Uno, flex sensors, and ADXL335 accelerometers.
+(https://im.ge/i/p.KsHKfm)
 
 # Features
 1. **Real-Time Translation**: Converts ASL gestures into text and speech instantly.
@@ -44,9 +45,9 @@ This project features a hardware-based sign-language glove translating gestures 
 # Bluetooth App Designing
 The website application provides the user with an interface to interact with the device. The basic interface first allows the user to choose between two modules of conversion of sign language to audio or audio to video signs. The figure above shows the main page of the website when the user opens the link. He gets two options when he enters the page. 
 
-+ Users can establish a connection between their phone and the glove by clicking the "Connect Bluetooth" button. After selecting the appropriate Bluetooth address associated with the glove, the application will automatically pair the devices, enabling seamless communication. [![Mobile APP interfface]](https://im.ge/i/m.KsHErY)
++ Users can establish a connection between their phone and the glove by clicking the "Connect Bluetooth" button. After selecting the appropriate Bluetooth address associated with the glove, the application will automatically pair the devices, enabling seamless communication. [![Mobile APP interface]](https://im.ge/i/m.KsHErY)
 
-+ ![This image is the block diag of the bluetooth app](https://im.ge/i/b.KsHZNf)
++ [![This image is the block diag of the bluetooth app]](https://im.ge/i/b.KsHZNf)
   
 # Usage
 1. Wear the glove and ensure all sensors are securely attached.
