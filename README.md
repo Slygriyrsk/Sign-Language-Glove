@@ -44,7 +44,7 @@ This project features a hardware-based sign-language glove translating gestures 
 # Bluetooth App Designing
 ![The website application provides the user with an interface to interact with the device. The basic interface first allows the user to choose between two modules of conversion of sign language to audio or audio to video signs. The figure above shows the main page of the website when the user opens the link. He gets two options when he enters the page. 
 
-+ They can click on the connect bluetooth button and once selecting the proper address of the bluetooth we are using for the glove it will establish a connection between your phone and glove.](http://url/to/b.png)
++ They can click on the connect bluetooth button and once selecting the proper address of the bluetooth we are using for the glove it will establish a connection between your phone and glove].(http://url/to/b.png)
 
 # Usage
 1. Wear the glove and ensure all sensors are securely attached.
