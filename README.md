@@ -22,24 +22,23 @@ This project features a hardware-based sign-language glove translating gestures 
        
 # Installation
 1. Hardware Setup
-    1. Attach the flex sensors to each finger of the glove.
-    2. Connect the ADXL335 accelerometer to the Arduino Uno.
-    3. Pair the Arduino Uno with a Bluetooth module.
-    4. Upload the firmware to the Arduino Uno using the Arduino IDE.
+    - Attach the flex sensors to each finger of the glove.
+    * Connect the ADXL335 accelerometer to the Arduino Uno.
+    +  Pair the Arduino Uno with a Bluetooth module.
+    - Upload the firmware to the Arduino Uno using the Arduino IDE.
 
-# Software Setup
-1. [Clone this repository:]
-(git clone https://github.com/yourusername/sign-language-glove.git)
+2. Software Setup
+    - [Clone this repository:] 
+      (git clone https://github.com/yourusername/sign-language-glove.git)
 
-3. Navigate to the project directory:
-![dropdown showing the code.](first.png)
-cd sign-language-glove
+     * Navigate to the project directory: 
+       cd sign-language-glove
 
-3. Install the required dependencies:
-pip install -r requirements.txt
+     + Install the required dependencies:
+        pip install -r requirements.txt
 
-5. Run the gesture recognition script:
-python gesture_recognition.py
+     - Run the gesture recognition script:
+        python gesture_recognition.py
 
 # Usage
 1. Wear the glove and ensure all sensors are securely attached.
@@ -54,14 +53,11 @@ We welcome contributions from the community! Here’s how you can help:
 2. Fix Issues: Fork the repository, make your changes, and submit a pull request.
 3. Improve Documentation: Help us improve the project's documentation by adding tutorials, examples, and clarifications.
 
-
-Certainly! Here's the revised Acknowledgments section highlighting the three team members and their specific contributions:
-
 # Acknowledgments
 This project would not have been possible without the dedicated efforts and contributions of our amazing team members:
 
-Saharsh Kumar: Developed the Bluetooth communication application, ensuring seamless connectivity between the glove and mobile devices.
-Hitesh Kumar: Focused on the hardware integration and wrote the core code for the Arduino Uno, flex sensors, and ADXL335 accelerometers.
-Mahesh K Katyayan: Worked on the signal processing and machine learning aspects, laying the groundwork for future innovations in gesture recognition.
++ Saharsh Kumar: Developed the Bluetooth communication application, ensuring seamless connectivity between the glove and mobile devices.
+- Hitesh Kumar: Focused on the hardware integration and wrote the core code for the Arduino Uno, flex sensors, and ADXL335 accelerometers.
+* Mahesh K Katyayan: Worked on the signal processing and machine learning aspects, laying the groundwork for future innovations in gesture recognition.
 Thank you for your hard work and commitment to making this project a success!
 
