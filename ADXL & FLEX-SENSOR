@@ -1,0 +1,104 @@
+#include <SoftwareSerial.h>
+
+SoftwareSerial bluetoothSerial(1, 0);
+
+int sensorPin1 = A0; // Flex sensor 1
+int sensorPin2 = A1; // Flex sensor 2
+int sensorPin3 = A2; // Flex sensor 3
+int sensorPin4 = A3; // Flex sensor 4
+
+int sensor1Value; // Flex sensor 1 reading
+int sensor2Value; // Flex sensor 2 reading
+int sensor3Value; // Flex sensor 3 reading
+int sensor4Value; // Flex sensor 4 reading
+
+int sensorPinX = A4; // X-axis of ADXL sensor
+int sensorPinY = A5; // Y-axis of ADXL sensor
+
+int sensorXValue; // X-axis sensor reading
+int sensorYValue; // Y-axis sensor reading
+
+int led1 = 6;
+int led2 = 5;
+int led3 = 4;
+int led4 = 3;
+
+int threshold1 = 700; // Threshold for flex sensor 1
+int threshold2 = 750; // Threshold for flex sensor 2
+int threshold3 = 850; // Threshold for flex sensor 3
+int threshold4 = 900; // Threshold for flex sensor 4
+
+void setup() {
+  pinMode(sensorPin1, INPUT);
+  pinMode(sensorPin2, INPUT);
+  pinMode(sensorPin3, INPUT);
+  pinMode(sensorPin4, INPUT);
+
+  pinMode(sensorPinX, INPUT);
+  pinMode(sensorPinY, INPUT);
+
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  pinMode(led4, OUTPUT);
+
+  Serial.begin(9600);
+  bluetoothSerial.begin(9600);
+}
+
+void loop() {
+  sensor1Value = analogRead(sensorPin1);
+  sensor2Value = analogRead(sensorPin2);
+  sensor3Value = analogRead(sensorPin3);
+  sensor4Value = analogRead(sensorPin4);
+
+  sensorXValue = analogRead(sensorPinX);
+  sensorYValue = analogRead(sensorPinY);
+
+  Serial.print("Flex Sensor 1: ");
+  Serial.print(sensor1Value);
+  Serial.print(", Flex Sensor 2: ");
+  Serial.print(sensor2Value);
+  Serial.print(", Flex Sensor 3: ");
+  Serial.print(sensor3Value);
+  Serial.print(", Flex Sensor 4: ");
+  Serial.print(sensor4Value);
+  Serial.print(", ADXL X: ");
+  Serial.print(sensorXValue);
+  Serial.print(", ADXL Y: ");
+  Serial.println(sensorYValue);
+
+  bluetoothSerial.print("F1:");
+  bluetoothSerial.print(sensor1Value);
+  bluetoothSerial.print(",F2:");
+  bluetoothSerial.print(sensor2Value);
+  bluetoothSerial.print(",F3:");
+  bluetoothSerial.print(sensor3Value);
+  bluetoothSerial.print(",F4:");
+  bluetoothSerial.print(sensor4Value);
+  bluetoothSerial.print(",X:");
+  bluetoothSerial.print(sensorXValue);
+  bluetoothSerial.print(",Y:");
+  bluetoothSerial.println(sensorYValue);
+
+  if (sensor1Value > threshold2 && sensor2Value < threshold2 && sensor3Value > threshold4 && sensor4Value < threshold3) {
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, HIGH);
+    digitalWrite(led4, HIGH);
+    Serial.println("OK detected");
+  } else if (sensor1Value > threshold2 && sensor2Value > threshold1 && sensor3Value > threshold4 && sensor4Value > threshold3) {
+    digitalWrite(led1, LOW);
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, LOW);
+    digitalWrite(led4, HIGH);
+    Serial.println("OUT detected");
+  } else {
+    digitalWrite(led1, LOW);
+    digitalWrite(led2, LOW);
+    digitalWrite(led3, LOW);
+    digitalWrite(led4, LOW);
+  }
+
+  delay(1000);
+}
