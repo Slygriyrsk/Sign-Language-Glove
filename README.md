@@ -10,39 +10,35 @@ This project features a hardware-based sign-language glove translating gestures 
    
 # Technology Stack
 1. Hardware:
-    1. Arduino Uno: Central microcontroller for data processing.
-    2. Flex Sensors: Detect finger movements.
-    3. ADXL335 Accelerometer: Tracks hand orientation and motion.
-    4. Bluetooth Module: For wireless communication with mobile devices and computers.
+    - Arduino Uno: Central microcontroller for data processing.
+    * Flex Sensors: Detect finger movements.
+    + ADXL335 Accelerometer: Tracks hand orientation and motion.
+    - Bluetooth Module: For wireless communication with mobile devices and computers.
 2. Software:
-    1. Programming Languages: C/C++ for Arduino, Python for data processing.
-    2. Machine Learning: TensorFlow or PyTorch for gesture recognition.
-    3. Mobile App: React Native for cross-platform compatibility.
-    4. Desktop App: Electron.js for a unified experience across OS.
+    - Programming Languages: C/C++ for Arduino, Python for data processing.
+    * Machine Learning: TensorFlow or PyTorch for gesture recognition.
+    + Mobile App: React Native for cross-platform compatibility.
+    - Desktop App: Electron.js for a unified experience across OS.
        
 # Installation
 1. Hardware Setup
-    a. Attach the flex sensors to each finger of the glove.
-    b. Connect the ADXL335 accelerometer to the Arduino Uno.
-    c. Pair the Arduino Uno with a Bluetooth module.
-    d. Upload the firmware to the Arduino Uno using the Arduino IDE.
+    1. Attach the flex sensors to each finger of the glove.
+    2. Connect the ADXL335 accelerometer to the Arduino Uno.
+    3. Pair the Arduino Uno with a Bluetooth module.
+    4. Upload the firmware to the Arduino Uno using the Arduino IDE.
 
 # Software Setup
-1. Clone this repository:
-bash
-Copy code
-git clone https://github.com/yourusername/sign-language-glove.git
-2. Navigate to the project directory:
-bash
-Copy code
+1. [Clone this repository:]
+(git clone https://github.com/yourusername/sign-language-glove.git)
+
+3. Navigate to the project directory:
+![dropdown showing the code.](first.png)
 cd sign-language-glove
+
 3. Install the required dependencies:
-bash
-Copy code
 pip install -r requirements.txt
-4. Run the gesture recognition script:
-bash
-Copy code
+
+5. Run the gesture recognition script:
 python gesture_recognition.py
 
 # Usage
