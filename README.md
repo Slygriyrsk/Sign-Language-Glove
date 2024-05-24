@@ -44,7 +44,10 @@ This project features a hardware-based sign-language glove translating gestures 
 # Bluetooth App Designing
 The website application provides the user with an interface to interact with the device. The basic interface first allows the user to choose between two modules of conversion of sign language to audio or audio to video signs. The figure above shows the main page of the website when the user opens the link. He gets two options when he enters the page. 
 
-+ Users can establish a connection between their phone and the glove by clicking the "Connect Bluetooth" button. After selecting the appropriate Bluetooth address associated with the glove, the application will automatically pair the devices, enabling seamless communication. ![Test Image 3](/m.png)
++ Users can establish a connection between their phone and the glove by clicking the "Connect Bluetooth" button. After selecting the appropriate Bluetooth address associated with the glove, the application will automatically pair the devices, enabling seamless communication. [![Mobile APP interfface]](https://im.ge/i/m.KsHErY)
+
++ ![This image is the block diag of the bluetooth app](https://im.ge/i/b.KsHZNf)
+  
 # Usage
 1. Wear the glove and ensure all sensors are securely attached.
 2. Turn on the Arduino Uno and pair it with your mobile device or computer via Bluetooth.
