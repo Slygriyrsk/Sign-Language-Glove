@@ -1,0 +1,236 @@
+#include "Wire.h"       
+#include "I2Cdev.h"     
+#include "MPU6050.h"    
+#include <SoftwareSerial.h>
+
+SoftwareSerial mySerial(0, 1);
+
+int thumb,first,second,third,fourth,fifth;
+
+
+
+MPU6050 mpu;
+int16_t ax, ay, az;
+int16_t gx, gy, gz;
+
+struct MyData {
+  byte X;
+  byte Y;
+  byte Z;
+};
+
+MyData data;
+
+void setup()
+{
+  Serial.begin(9600);
+  Wire.begin();
+  mpu.initialize();
+  pinMode(A0,INPUT);
+  pinMode(A1,INPUT);
+  pinMode(A2,INPUT);
+  pinMode(A3,INPUT);
+ 
+  Serial.begin(9600);
+  mySerial.begin(9600);
+  while (!Serial) {
+  }
+  //pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop()
+{
+  mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+  data.X = map(ax, -17000, 17000, 0, 255 ); // X axis data
+  data.Y = map(ay, -17000, 17000, 0, 255); 
+  data.Z = map(az, -17000, 17000, 0, 255);  // Y axis data
+  delay(500);
+  int first = analogRead(A0);
+  int second = analogRead(A1);
+  int third = analogRead(A2);
+  int fourth = analogRead(A3);
+  if(first<993 && second<993 && fourth>997){
+    Serial.println("beautiful");
+    mySerial.println("  beautiful");
+    // Serial.print("1st sensor val: ");
+    // Serial.println(first);
+    // Serial.print("2nd sensor val: ");
+    // Serial.println(second);
+    // Serial.print("3rd sensor val: ");
+    // Serial.println(third);
+    // Serial.print("4th sensor val: ");
+    // Serial.println(fourth);
+  }
+  else if(first<990 && second>995 && fourth<991){
+    Serial.println("rock");
+    mySerial.println("rrock");
+    // Serial.print("1st sensor val: ");
+    // Serial.println(first);
+    // Serial.print("2nd sensor val: ");
+    // Serial.println(second);
+    // Serial.print("3rd sensor val: ");
+    // Serial.println(third);
+    // Serial.print("4th sensor val: ");
+    // Serial.println(fourth);
+  }
+  else if(first>994 && second>997 && fourth>995){
+    Serial.println("sorry");
+    mySerial.println("ssorry");
+    // Serial.print("1st sensor val: ");
+    // Serial.println(first);
+    // Serial.print("2nd sensor val: ");
+    // Serial.println(second);
+    // Serial.print("3rd sensor val: ");
+    // Serial.println(third);
+    // Serial.print("4th sensor val: ");
+    // Serial.println(fourth);
+  }
+
+  // if (first > 980 && second > 980 && third < 1000 && fourth < 1000)                      
+  // {
+  //   Serial.println("Please Give Me Water");
+  //   mySerial.println(" Please Give Me Water");
+  //   Serial.print("1st sensor val: ");
+  //   Serial.println(first);
+  //   Serial.print("2nd sensor val: ");
+  //   Serial.println(second);
+  //   Serial.print("3rd sensor val: ");
+  //   Serial.println(third);
+  //   Serial.print("4th sensor val: ");
+  //   Serial.println(fourth);
+    
+  // }
+  // else if (( second >= 990 && third >= 990 && first >= 980 && fourth >= 990))  
+  // {
+  //   Serial.println(" Please Give Me Food");
+  //   mySerial.println(" Please Give Me Food");
+  //   Serial.print("1st sensor val: ");
+  //   Serial.println(first);
+  //   Serial.print("2nd sensor val: ");
+  //   Serial.println(second);
+  //   Serial.print("3rd sensor val: ");
+  //   Serial.println(third);
+    
+  //   Serial.print("4th sensor val: ");
+  //   Serial.println(fourth);
+    
+  // }
+  // else if ((second < 1000 && third >= 990 && fourth < 990 && first < 995))
+  // {
+  //   Serial.println("  Me Water");
+  //   mySerial.println(" Give Me Water");
+  //   Serial.print("1st sensor val: ");
+  //   Serial.println(first);
+  //   Serial.print("2nd sensor val: ");
+  //   Serial.println(second);
+  //   Serial.print("3rd sensor val: ");
+  //   Serial.println(third);
+  //   Serial.print("4th sensor val: ");
+  //   Serial.println(fourth);  
+  // }
+  // else{
+  //   mySerial.println(" bye");
+  //   Serial.print("1st sensor val: ");
+  //   Serial.println(first);
+  //   Serial.print("2nd sensor val: ");
+  //   Serial.println(second);
+  //   Serial.print("3rd sensor val: ");
+  //   Serial.println(third);
+  //   Serial.print("4th sensor val: ");
+  //   Serial.println(fourth);
+    
+  // }
+  else if(first>950 && first<989 && second>950 && second<992 && fourth>=979 && fourth<995 && data.X>210 && data.X<272 && data.Y>70 && data.Y<179 && data.Z>70 && data.Z<132){
+    Serial.println("come");
+    mySerial.println("ccome");
+    // Serial.print("1st sensor val: ");
+    // Serial.println(first);
+    // Serial.print("2nd sensor val: ");
+    // Serial.println(second);
+    // Serial.print("3rd sensor val: ");
+    // Serial.println(third);
+    // Serial.print("4th sensor val: ");
+    // Serial.println(fourth);
+  }
+  // else if(first>980 && second<985 && fourth<985 && data.X<242 && data.Y>122 && data.Z>180){
+  //   Serial.println("drinks");
+  //   mySerial.println(" drinks?");
+  //   // Serial.print("1st sensor val: ");
+  //   // Serial.println(first);
+  //   // Serial.print("2nd sensor val: ");
+  //   // Serial.println(second);
+  //   // Serial.print("3rd sensor val: ");
+  //   // Serial.println(third);
+  //   // Serial.print("4th sensor val: ");
+  //   // Serial.println(fourth);
+  // }
+  else{
+    Serial.println("nothing");
+    mySerial.println("  nothing");
+    Serial.print("1st sensor val: ");
+    Serial.println(first);
+    Serial.print("2nd sensor val: ");
+    Serial.println(second);
+    Serial.print("3rd sensor val: ");
+    Serial.println(third);
+    Serial.print("4th sensor val: ");
+    Serial.println(fourth);
+  }
+
+
+  // if (first > 980 && second > 980 && third < 1000 && fourth < 1000)                      
+  // {
+  //   Serial.println("Please Give Me Water");
+  //   mySerial.println(" Please Give Me Water");
+  //   Serial.print("1st sensor val: ");
+  //   Serial.println(first);
+  //   Serial.print("2nd sensor val: ");
+  //   Serial.println(second);
+  //   Serial.print("3rd sensor val: ");
+  //   Serial.println(third);
+  //   Serial.print("4th sensor val: ");
+  //   Serial.println(fourth);
+    
+  // }
+  // else if (( second >= 990 && third >= 990 && first >= 980 && fourth >= 990))  
+  // {
+  //   Serial.println(" Please Give Me Food");
+  //   mySerial.println(" Please Give Me Food");
+  //   Serial.print("1st sensor val: ");
+  //   Serial.println(first);
+  //   Serial.print("2nd sensor val: ");
+  //   Serial.println(second);
+  //   Serial.print("3rd sensor val: ");
+  //   Serial.println(third);
+    
+  //   Serial.print("4th sensor val: ");
+  //   Serial.println(fourth);
+    
+  // }
+  // else if ((second < 1000 && third >= 990 && fourth < 990 && first < 995))
+  // {
+  //   Serial.println("  Me Water");
+  //   mySerial.println(" Give Me Water");
+  //   Serial.print("1st sensor val: ");
+  //   Serial.println(first);
+  //   Serial.print("2nd sensor val: ");
+  //   Serial.println(second);
+  //   Serial.print("3rd sensor val: ");
+  //   Serial.println(third);
+  //   Serial.print("4th sensor val: ");
+  //   Serial.println(fourth);  
+  // }
+  // else{
+  //   mySerial.println(" bye");
+  //   Serial.print("1st sensor val: ");
+  //   Serial.println(first);
+  //   Serial.print("2nd sensor val: ");
+  //   Serial.println(second);
+  //   Serial.print("3rd sensor val: ");
+  //   Serial.println(third);
+  //   Serial.print("4th sensor val: ");
+  //   Serial.println(fourth);
+    
+  // }
+  delay(10000);
+}
